@@ -1,0 +1,1312 @@
+
+<div class="upcoming-events-section-wrapper" data-snippetname="upcoming-events-section">
+
+    <div class="upcoming-events-section-container">
+    <div class="upcoming-events-headline-wrapper"><h2 class="upcoming-events-headline">Die nächsten Termine</h2></div>
+
+      
+      
+      
+      
+        </div>
+    </div>
+    <div class="upcoming-events-see-more-button-container"><button class="upcoming-events-see-more-button" onclick="openDestinationCollection('{{ collectionLink }}')" >Mehr Events</button></div>
+
+
+
+
+<style>
+
+  .upcoming-events-headline-wrapper{
+
+  
+    
+    margin-bottom: 2rem;
+    
+
+    
+  }
+
+  .upcoming-events-headline{
+    display: inline-block;
+    width: auto;
+    height: auto;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    background: white;
+  
+    color: black;
+    font-family: var(--heading-font-family);
+    text-transform: var(--button-large-custom-text-transform);
+    font-size: var(--font-size-large);
+    font-weight: var(--button-large-custom-font-weight);
+    
+  }
+
+
+  .upcoming-events-section-wrapper{
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.upcoming-events-section-container{
+
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  
+    gap: 2rem;
+
+
+}
+.upcoming-product-element{
+
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 2px;
+  
+
+
+}
+
+  
+@keyframes slide-in-bottom {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.upcoming-events-section-left{
+    
+    display: flex;
+    flex-direction: column;
+    width: 768px;
+  heigth: 371px;
+  background-size: cover;
+  cursor: pointer;
+  
+
+  
+  
+}
+
+.upcoming-events-section-left img{
+
+    width: auto;
+
+}
+
+.upcoming-events-section-left-label-container{
+
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-repeat: no-repeat;
+    background-size: auto;
+  margin-left: 0.35rem;
+  margin-top: 0.35rem;
+
+
+
+
+
+}
+.upcoming-events-section-left-label-container label{
+
+    
+    margin: 0.35rem;
+    border-radius: 2px;
+    font-family: var(--heading-font-family);
+    font-size: var(--font-size-extra-small);
+    text-transform: uppercase;
+  font-weight: var(--button-large-custom-font-weight);
+
+
+}
+
+.upcoming-events-section-time{
+
+    background-color: var(--custom-color-yellow);
+    padding: 0.5rem;
+}
+
+
+.upcoming-events-section-type{
+
+    background-color: white;
+    padding: 0.5rem;
+
+
+}
+
+.upcoming-events-section-level{
+
+    padding: 0.5rem;
+}
+
+.upcoming-events-section-right{
+
+    
+
+  width: 768px;
+  heigth: 371px;
+  background-size: cover;
+  
+  
+
+
+
+
+}
+
+.upcoming-events-section-right-content-container{
+
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+
+
+}
+
+.upcoming-events-section-left-label-container label{
+
+    font-family: var(--heading-font-family);
+    font-size: var(--font-size-extra-small)
+
+}
+
+
+.upcoming-events-section-right-content-container button{
+
+
+    margin-top: 0.5rem;
+    background-color: black;
+    color: white;
+    font-family: var(--button-large-custom-font-family);
+    font-weight: var(--button-large-custom-font-weight);
+    padding: 1rem 2rem;
+    border-radius: var(--button-large-border-radius);
+    border: none;
+    cursor: pointer;
+
+}
+
+.upcoming-events-section-right-content-container button:hover{
+
+
+  margin-top: 0.5rem;
+    background-color: black;
+    color: white;
+    font-family: var(--button-large-custom-font-family);
+    font-weight: var(--button-large-custom-font-weight);
+    padding: 1rem 2rem;
+    border-radius: var(--button-large-border-radius);
+    border: none;
+    cursor: pointer;
+
+
+}
+
+.upcoming-events-section-right-content-container span{
+
+
+    font-family: var(--heading-font-family);
+
+
+}
+
+.upcoming-events-product-type{
+
+    font-size: var(--font-size-small);
+  text-transform: uppercase;
+
+}
+
+.upcoming-events-product-name{
+
+  
+    font-size: var(--font-size-medium);
+  cursor: pointer;
+    font-weight: bold;
+  text-transform: uppercase;
+
+}
+
+.upcoming-events-product-date{
+
+    font-size: var(--font-size-small);
+
+
+}
+
+
+
+   @media (max-width: 600px) {
+
+     .upcoming-events-headline-wrapper{
+
+       
+       
+     }
+
+
+     .upcoming-events-headline{
+
+
+       font-size: var(--font-size-medium);
+       
+       
+     }
+
+    .upcoming-events-section-right{
+
+width: 199px;
+  height: 199px;
+      
+
+}
+
+      .upcoming-events-section-left{
+
+   width: 199px;
+  height: 199px;
+
+}
+
+
+     .upcoming-events-product-type{
+
+      display: none;
+       
+     }
+
+     .upcoming-events-product-name{
+
+
+       font-size: var(--font-size-extra-small);
+       font-weight: var(--button-large-custom-font-weight);
+       margin-top: -0.5rem;
+       
+     }
+
+     .upcoming-events-product-date{
+
+
+        font-size: var(--font-size-extra-small);
+       
+     }
+
+     .upcoming-events-product-price{
+
+        font-size: var(--font-size-extra-small);
+       
+     }
+
+     .upcoming-events-section-right-content-container button{
+
+    font-size: var(--font-size-extra-small);
+       padding: 0.6rem 1rem;
+       
+     }
+
+     .upcoming-events-section-right-content-container{
+    
+       gap: 0.4rem;
+}
+
+     .upcoming-events-section-left-label-container{
+
+
+       gap: 0.25rem;
+       
+     }
+
+     .upcoming-events-section-left-label-container label{
+
+
+      padding: 0.25rem;
+       font-family: var(--heading-font-family);
+       font-size: 10px;
+       
+     }
+
+     .upcoming-events-section-container {
+      width: 90%;
+      gap: 2rem;
+}
+
+    
+}
+
+
+  .upcoming-events-see-more-button-container{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+  }
+
+
+  .upcoming-events-see-more-button{
+
+
+    margin-top: 0.5rem;
+    background-color: black;
+    color: white;
+    font-family: var(--button-large-custom-font-family);
+    font-weight: var(--button-large-custom-font-weight);
+    padding: 1rem 2rem;
+    border-radius: var(--button-large-border-radius);
+    border: none;
+    cursor: pointer;
+    margin-top: 4rem;
+    text-transform: var(--button-large-custom-text-transform);
+    
+  }
+  
+</style>
+
+
+<script>
+
+  let collectionCleaned = [];
+  collectionCleaned.products = [];
+
+
+{% assign webinar_collection = "omr-deep-dive" %}
+{%assign productsToDisplay = productCount %}
+{% assign webinars = collections[webinar_collection].metafields.custom.freewebinar.value  %}
+
+  let totalWebinars = '{{ webinars | json }}';
+  totalWebinars = JSON.parse(totalWebinars);
+  
+
+{% assign events = collectionHandle  %}
+{% assign collection = collections[events] %}
+  {% assign webinarCondition = showWebinars %}
+
+
+  {% assign destLink = collectionLink %}
+
+
+
+
+  let productTitle;
+let dateCleaned;
+let dateIso;
+let productType;
+let productCategory;
+let titleNoBranding;
+let skillLevel;
+let metaFieldDate;
+let startDate;
+let catTypeTitle;
+let variantTitle;
+let remainingDays;
+let backgroundImages;
+let leftImage;
+  let rightImage;
+  let dateRefined;
+  let remainingDaysMessage;
+  let validDate;
+  let showWebinars = '{{ webinarCondition }}';
+  let startIndex = 0;
+  let productsToDisplay = parseInt('{{ productsToDisplay }}');
+  let endIndex = parseInt('{{ productsToDisplay }}');
+  let destinationLink = '{{ destLink }}';
+
+
+
+
+{% for product in collection.products %}
+
+
+ skillLevel = '{{product.metafields.custom.level}} ';
+  skillLevel = removeCharacters(skillLevel);
+  
+  
+  productTitle = '{{ product.title }}';
+
+
+  catTypeTitle = createCategoryTypeAndTitle(productTitle);
+  
+productType = catTypeTitle[0]
+productCategory = catTypeTitle[1]
+titleNoBranding = catTypeTitle[2];
+
+
+    
+  {% if product.variants.size >= 1 %}
+
+  {% for variant in product.variants %}
+
+  metaFieldDate = '{{ variant.metafields.custom.startdate }}';
+  
+  variantTitle  = '{{ variant.title }}';
+  
+  variantTitle = cleanVariantTitle(variantTitle);
+
+  //remainingDays = getRemainingDays(metaFieldDate);
+  remainingDays = getRemainingDaysByDayOfTheYear(metaFieldDate);
+  
+  remainingDaysMessage = createRemainingDaysMessage(remainingDays);
+
+  backgroundImages = returnBackgroundImages('{{product.title}}');
+
+  dateRefined = splitDate(metaFieldDate);
+
+  leftImage = backgroundImages[0];
+  rightImage = backgroundImages[1];
+  validDate = isFutureDate(metaFieldDate);
+
+  
+  
+  if(variantTitle && validDate){
+
+
+
+    collectionCleaned.push(  
+{
+"producttitleoriginal": '{{ product.title }}',
+"leftimage": leftImage,
+"rightimage": rightImage,
+"producttitle": titleNoBranding,
+"dateoriginal": variantTitle,
+"daterefined": dateRefined,
+"producttype": productType,
+"productcategory": productCategory,
+"productlink": 'https://education.omr.com/products/' + '{{product.handle}}',
+ "eventlabel": "Online-Seminar", 
+"price": '{{product.price | money}}',
+"productid": '{{ product.id }}',
+"imageurl":'https:' + '{{ product.featured_image.src | img_url: 'medium' }}',
+"startdate": "",
+"hasvariants": "true",
+  "daystoevent": remainingDays,
+  "messagestate": remainingDaysMessage[0],
+  "remainingdaysmessage": remainingDaysMessage[1],
+"dateiso": metaFieldDate,
+  "level": skillLevel
+    
+  }
+);
+
+
+    
+    
+  }
+
+
+  {% endfor %}
+
+  {% endif %}
+  
+{% endfor %}
+
+
+if(showWebinars == "yes"){
+
+cleanWebinarData();  
+  
+}
+  
+createDL();
+sortArrayByDate(collectionCleaned, "dateiso");
+addTilesToFrontEnd(startIndex, endIndex);
+  observeVisibility('#upcoming-product-element-1', {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.5
+}, handleVisibleElement);
+//addEventListenerToSeeMoreButton();
+//addEventListenerToScreenResize();
+
+
+function openDestinationCollection(link){
+
+
+  window.location.href = link;
+
+  
+}
+
+  function createDL(){
+
+  window.dataLayer = window.dataLayer || [];
+    
+  }
+  
+
+function addEventListenerToScreenResize(){
+
+window.addEventListener("resize", setMarginToHeadlineElement);
+  
+  
+}
+
+
+  function setMarginToHeadlineElement(){
+
+    //get the first product tile
+    const productTile = document.getElementById("upcoming-events-section-left-0");
+
+    //get the offset of that element;
+    
+    const offset = productTile.offsetLeft;
+console.log(offset);
+  
+
+    const headlineElement = document.querySelector(".upcoming-events-headline");
+    headlineElement.style.marginLeft = offset + "px";
+    
+  }
+
+  
+
+function addTilesToFrontEnd(start, end){
+const productListing = document.querySelector('.upcoming-events-section-container');
+
+const lengthOfArray = collectionCleaned.length;
+collectionCleaned.forEach((product, index)=>{
+
+
+    let labelColor = getLabelColor(product.level);
+  
+    let message = "";
+    let display = "none";
+
+    if(index > endIndex){
+
+        return
+
+    }
+
+    if(index >= start && index <= end){
+  
+    if(product.daystoevent){
+
+
+        message = product.daystoevent;
+        display = "flex";
+
+    }
+
+
+    const productEl = document.createElement('div');
+    const productLink = product.productlink;
+    productEl.classList.add('upcoming-product-element');
+    productEl.setAttribute('id', 'upcoming-product-element-' + index );
+    productEl.innerHTML = `
+    
+    
+        <div class="upcoming-events-section-left" id="upcoming-events-section-left-${index}" style="background-image: url('${product.leftimage}')">
+
+            <div class="upcoming-events-section-left-label-container" id="upcoming-events-section-left-label-container-${index}">
+           
+            </div>
+        </div>
+        <div class="upcoming-events-section-right" id="upcoming-events-section-right-${index}" style="background-image: url('${product.rightimage}')">
+            <div class="upcoming-events-section-right-content-container" id="upcoming-events-section-right-content-container-${index}">
+                <span class="upcoming-events-product-type" id="upcoming-events-product-type-${index}">${product.productcategory}</span>
+                <span class="upcoming-events-product-name" id="upcoming-events-product-name-${index}">${product.producttitle}</span>
+                <span class="upcoming-events-product-date" id="upcoming-events-products-date-${index}">${product.daterefined}</span>
+                <span class="upcoming-events-product-price" id="upcoming-events-products-price-${index}">${product.price}</span>
+                <div class="upcoming-events-product-link-btn" id="upcoming-events-product-link-btn-${index}"><button onclick="window.location.href = '${product.productlink}'">MEHR INFOS</Button>
+            </div>
+    
+
+      
+    `;
+
+    productListing.appendChild(productEl);
+    addEventListenerToElement("upcoming-events-section-left-" + index, productLink);
+    addEventListenerToElement("upcoming-events-product-name-" + index, productLink);
+    addEventListenerToElement("upcoming-events-product-link-btn-" + index, productLink);
+  
+    createLabels(index, product.producttype, product.level, display, product.remainingdaysmessage);
+  
+  //if mobile and long title, gap of container has to be smaller to fit all elements into container
+
+  let deviceType = isMobileDevice();
+  let title = product.producttitle;
+  
+  
+  
+  if(title.length >= 60 && !deviceType){
+
+  setGap(index);
+    
+  }
+  
+
+ }    
+
+
+})
+
+
+startIndex = endIndex + 1;
+endIndex = endIndex + productsToDisplay + 1;
+
+if(endIndex >= lengthOfArray){
+
+endIndex = lengthOfArray;
+removeSeeMoreButton();
+  
+}
+  
+}
+
+
+function removeSeeMoreButton(){
+
+const seeMoreButton = document.querySelector(".upcoming-events-see-more-button");
+seeMoreButton.style.display = "none";
+
+  
+  
+}  
+
+  
+function addEventListenerToSeeMoreButton(){
+
+  const seeMoreButton = document.querySelector(".upcoming-events-see-more-button");
+  seeMoreButton.addEventListener("click",() =>{
+
+
+    
+    addTilesToFrontEnd(startIndex, endIndex);
+    
+    
+    
+  })
+
+  
+}
+  
+
+function setGap(id){
+
+const containerEl = document.getElementById("upcoming-events-section-right-content-container-" + id);
+containerEl.style.gap = "0.1rem";
+
+  
+}  
+
+  
+
+function createLabels(index, producttype, level, display, remainingdaysmessage){
+
+  
+  
+//get label container element
+  const labelContainer = document.getElementById("upcoming-events-section-left-label-container-" + index);
+
+  const typeLabel = document.createElement("label");
+  typeLabel.classList.add("upcoming-events-section-type");
+  typeLabel.setAttribute("id", "upcoming-events-product-type-" + index );
+  typeLabel.innerText = producttype;
+
+  labelContainer.appendChild(typeLabel);
+
+  //variable needed for level label elements
+  let levelLabel;
+
+  //variable needed to store color values for label background
+  let labelColor;
+
+  //if multiple values entered for level separated by comma
+  if(level.includes(",")){
+
+    
+    
+  level = level.split(",");
+  level.forEach(level =>{
+
+  labelColor = getLabelColor(level);
+  levelLabel = document.createElement("label");
+  levelLabel.classList.add("upcoming-events-section-level"); 
+  levelLabel.setAttribute("id","upcoming-events-section-level-" + index);
+  levelLabel.style.backgroundColor = labelColor;
+  levelLabel.innerText = level;
+
+  labelContainer.appendChild(levelLabel);
+    
+    
+  })
+
+    //if single value is given
+  }else{
+
+
+  labelColor = getLabelColor(level);
+
+  levelLabel = document.createElement("label");
+  levelLabel.classList.add("upcoming-events-section-level"); 
+  levelLabel.setAttribute("id","upcoming-events-section-level-" + index);
+  levelLabel.style.backgroundColor = labelColor;
+  levelLabel.innerText = level;
+
+    
+  labelContainer.appendChild(levelLabel);
+    
+  }
+
+
+  if(remainingdaysmessage == ""){
+
+
+    
+    
+  }else{
+  
+  const messageLabel = document.createElement("label");
+  messageLabel.setAttribute("id", "upcoming-events-section-time-" + index);
+  messageLabel.classList.add("upcoming-events-section-time");
+  messageLabel.innerText = remainingdaysmessage;
+
+  labelContainer.appendChild(messageLabel);
+  }
+
+  
+  
+}
+  
+
+
+function createCategoryTypeAndTitle(productTitle){
+
+    let productType;
+    let productCategory;
+    let titleNoBranding;
+
+if(productTitle.includes("Academy")){
+
+  
+productType = "E-Learning-Kurs";
+productCategory = "OMR Academy";
+titleNoBranding = productTitle.replace("OMR Academy | ", "");
+  
+}
+
+
+if(productTitle.includes("Deep Dive")){
+
+  
+productCategory = "OMR Deep Dive";
+productType = "Online-Seminar";
+  titleNoBranding = productTitle.replace("OMR Deep Dive | ", "");
+
+
+if(productTitle.includes("Workshop")){
+
+
+  productType = "Offline Workshop";
+  productCategory = "OMR Deep Dive Workshop";
+  titleNoBranding = productTitle.replace("OMR Deep Dive Workshop | ", "");
+
+
+  
+}
+
+  
+
+if(productTitle.includes("Sprint I")){
+
+  productType = "Online Sprint Seminar";
+  productCategory = "OMR Deep Dive Sprint";
+  titleNoBranding = productTitle.replace("OMR Deep Dive Sprint I ", "");
+
+  
+}
+
+
+  if(productTitle.includes("Sprint |")){
+
+  productType = "Online Sprint Seminar";
+  productCategory = "OMR Deep Dive Sprint";
+  titleNoBranding = productTitle.replace("OMR Deep Dive Sprint | ", "");
+
+  
+}
+  
+
+  if(productTitle.includes("Sprint Pro")){
+
+  productType = "Online Sprint Seminar";
+  productCategory = "OMR Deep Dive Sprint";
+  titleNoBranding = productTitle.replace("OMR Deep Dive Sprint Pro | ", "");
+
+    
+  }
+  
+  
+}  
+
+
+if(productTitle.includes("Summer")){
+
+ productCategory = "OMR Summer School";
+ productType = "Online-Seminar";
+  titleNoBranding = productTitle.replace("OMR Summer School | ", "");
+
+
+}
+    
+return [productType, productCategory, titleNoBranding];
+
+    
+  }
+  
+
+
+
+function cleanWebinarData(){
+
+
+    if(totalWebinars.length > 1){
+
+
+        totalWebinars.forEach((webinar, index)=>{
+
+
+            let date = webinar.timefull.toString();
+    
+          //  let remainingDays = getRemainingDays(date);
+          let remainingDays = getRemainingDaysByDayOfTheYear(date);
+
+          let images = returnBackgroundImages('Kostenlos');
+          let leftImage = images[0];
+          let rightImage = images[1];
+
+          let remainingDaysMessage = createRemainingDaysMessage(remainingDays);
+
+        let validDate = isFutureDate(date);
+
+            if(validDate){
+
+            let dateFormatted = splitDate(webinar.timefull);
+
+                collectionCleaned.push(
+                    {
+                        "dateiso": webinar.timefull,
+                        "producttitle": webinar.fulltitle,
+                      "leftimage": leftImage,
+                      "rightimage": rightImage,
+                        "dateoriginal": dateFormatted,
+                        "daterefined": dateFormatted,
+                        "producttype": "Online-Seminar",
+                        "productcategory": "Online-Seminar",
+                        "eventimage":"",
+                        "daystoevent": remainingDays,
+                        "messagestate": remainingDaysMessage[0],
+                        "remainingdaysmessage": remainingDaysMessage[1],
+                        "productlink": webinar.landingpageurl,
+                        "eventlabel":"Online-Seminar",
+                        "price": "kostenfrei",
+                        "level": webinar.level,
+                        "imageurl": webinar.imageurl,
+                        "webinarid": webinar.webinarid,
+                        "successmessage": webinar.successmessage
+
+
+                    }
+                )
+
+
+            }else{
+
+
+            }
+
+        })
+
+    }
+
+} 
+
+
+function addEventListenerToElement(elementId, link){
+
+const element = document.getElementById(elementId);
+element.addEventListener("click", ()=>{
+
+pushEventToDl("UpcomingEventSectionTileClick", elementId, "A");
+window.location.href = link;
+  
+  
+})
+  
+
+  
+}  
+
+/*
+function pushEventToDl(event, location){
+
+  
+      window.dataLayer.push({
+        'event': event,
+        'action': location        
+        });
+
+  
+  
+}  
+
+*/
+
+
+function returnBackgroundImages(productTitle){
+
+  let imageLeft;
+  let imageRight;
+  let deviceType = isMobileDevice();
+  
+  if(productTitle.includes ("Upskill")){
+
+    if(!deviceType){
+      
+    imageLeft = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/Upskill_Banner_desktop_L.png?v=1689232182";
+    imageRight = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/Upskill_Banner_desktop_R.png?v=1689232181";
+    
+    }else{
+
+      imageLeft = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/Upskill_Banner_mobil_L_688a17b2-488a-4c8c-a3c4-61d59ad54965.png?v=1689841631";
+      imageRight = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/Upskill_Banner_mobil_R_a93d4090-3e95-4146-a1b5-b5089c334404.png?v=1689841821";
+      
+    }
+  }
+
+
+  if(productTitle.includes("Deep Dive") || productTitle.includes("Summer")){
+
+    if(!deviceType){
+      
+    imageLeft = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/DD_Banner_desktop_L.png?v=1689232184";
+    imageRight = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/DD_Banner_desktop_R.png?v=1689232181";
+      
+    }else{
+
+      imageLeft = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/DD_Banner_mobil_L_8c24a5a6-0e15-4c04-8fe5-a3e96a70e728.png?v=1689841632";
+      imageRight = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/DD_Banner_mobil_R_a26eefb9-4530-48de-81ec-f85f10612d2c.png?v=1689841821";
+      
+    }
+  }
+
+
+   if(productTitle.includes("Academy")){
+
+    if(!deviceType){
+    imageLeft = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/Academy_Banner_desktop_L.png?v=1689232183";
+    imageRight = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/Academy_Banner_desktop_R.png?v=1689232182";
+    }else{
+
+    imageLeft = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/Academy_Banner_mobil_L_83e73535-71f7-4f28-bc66-7105040de340.png?v=1689841631";
+    imageRight = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/Academy_Banner_mobil_R_1a0bd60d-e8fd-44a4-bab2-e90a13da1d66.png?v=1689841820";
+      
+    }
+  }
+
+
+  if(productTitle.includes("Kostenlos") || productTitle.includes("kostenlos")){
+
+if(!deviceType){
+  
+    imageLeft = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/KOS_Banner_desktop_L_01.png?v=1689841452";
+    imageRight = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/KOS_Banner_desktop_R.png?v=1689232182";
+  
+    }else{
+  
+    imageLeft = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/KOS_Banner_mobil_01.png?v=1689841631";
+    imageRight = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/KOS_Banner_mobil_787882bd-2d31-4cdd-8b1e-05928c69ed1f.png?v=1689841821";
+  
+    }
+
+
+    
+    
+  }
+
+
+   if(productTitle.includes("Creative Strategy") || productTitle.includes("creative strategy")){
+
+if(!deviceType){
+  
+    imageLeft = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/CSD_Banner_desktop_L.png?v=1689851235";
+    imageRight = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/CSD_Banner_desktop_R.png?v=1689851254";
+  
+    }else{
+  
+    imageLeft = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/CSD_Banner_mobil_L_8124bfa0-a552-4c64-b114-85ae017b864e.png?v=1689851350";
+    imageRight = "https://cdn.shopify.com/s/files/1/0563/4310/1600/files/CSD_Banner_mobil_R_096257b7-57a0-4576-a026-e79e42acfdb6.png?v=1689851348";
+  
+    }
+
+
+    
+    
+  }
+  
+  
+
+  return [imageLeft, imageRight]
+
+  
+}
+  
+
+function sortArrayByDate(array, dateKey) {
+  array.sort(function(a, b) {
+    let dateA = new Date(a[dateKey]);
+    let dateB = new Date(b[dateKey]);
+    return dateA - dateB;
+  });
+
+  return array;
+}
+
+function removeCharacters(str) {
+  let modifiedStr = str.replace(/["\[\]]/g, '');
+  if(modifiedStr.includes("")){
+
+  modifiedStr = modifiedStr.replace(" ", "");
+    
+  }
+  
+  return modifiedStr;
+}
+
+  function cleanVariantTitle(variantTitle){
+
+  //02.11.2023 | 10:00 - 11:30 Uhr / Mit Report
+
+    if(variantTitle.includes("default") || variantTitle.includes("Default")){
+
+    return false
+  
+      
+    }
+
+    //date is not yet determined
+    if(variantTitle.includes("xx")){
+
+      return false
+      
+    }
+
+
+    
+    //prevent to add this to the array as otherwise it would be added twice 
+    if(variantTitle.includes("Mit Report") || variantTitle.includes("mit report")){
+
+    return false
+      
+    }
+
+    if(variantTitle.includes("Ohne Report") || variantTitle.includes("ohne report")){
+      
+
+      variantTitle = variantTitle.replace(" / Ohne Report", "");
+      
+    }
+
+    return variantTitle;
+
+    
+  }
+
+  function getRemainingDays(timeParameter) {
+  let currentTime = new Date();
+  let targetTime = new Date(timeParameter);
+
+  let timeDiff = targetTime.getTime() - currentTime.getTime();
+  let remainingDays = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+
+  if(currentTime > targetTime){
+
+    return false
+    
+  }
+
+    
+  return remainingDays;
+}
+
+
+function splitDate(dateParam){
+
+  
+  let date = new Date(dateParam);
+  let dd = date.getDate();
+  let mm = date.getMonth() + 1;
+  let yy = date.getFullYear();  
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+
+  dd = addZeros(dd);
+  mm = addZeros(mm);
+  hours = addZeros(hours);
+  minutes = addZeros(minutes);
+
+  
+  return dd + "." + mm + "." + yy + " | " + hours + ":" + minutes + " Uhr";
+}  
+
+function addZeros(param){
+
+if(param < 10){
+
+param = "0" + param;
+  
+  
+}
+
+
+return param  
+  
+  
+}
+  
+function createRemainingDaysMessage(remainingDays){
+
+  let message = "";
+  let state = "none";
+
+  if(remainingDays < 7){
+
+    message = "In " + remainingDays + " Tagen";
+    state = "";
+  }
+
+  if(remainingDays == 1){
+
+    message = "Morgen";
+    state = "";
+    
+  }
+
+  if(remainingDays == 0){
+
+    message = "Heute";
+    state = "";
+    
+  }
+
+
+  return [state, message];
+  
+  
+}
+
+  function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+
+
+  function getLabelColor(level){
+
+    let color;
+
+    if(level.includes("Einsteiger")){
+
+    color = "#80E0DB";
+      
+    }
+
+    if(level.includes("Profis")){
+
+    color = "#FFDB75";
+      
+    }
+
+    if(level.includes("Fortgeschritten")){
+
+    color = "#ADA6FC";
+      
+    }
+
+    return color;
+
+    
+  }
+
+
+  function getRemainingDaysByDayOfTheYear(dateString){
+
+    let inputDate = new Date(dateString);
+    let startOfYear = new Date(inputDate.getFullYear(), 0, 0);
+
+    let oneDay = 1000 * 60 * 60 * 24;
+    let inputDayOfYear = Math.floor((inputDate - startOfYear) / oneDay);
+
+    let now = new Date();
+    let currentDayOfYear = Math.floor((now - startOfYear) / oneDay);
+
+    let diff = inputDayOfYear - currentDayOfYear;
+    return diff;
+    
+  }
+
+ function isFutureDate(dateString) {
+  var inputDate = new Date(dateString);
+  var now = new Date();
+
+  if (inputDate > now) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+  function observeVisibility(targetSelector, options, callback) {
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        callback(entry.target);
+        observer.unobserve(entry.target); // Das Beobachten nach Sichtbarkeit stoppen
+      }
+    });
+  }, options);
+
+  const targetElements = document.querySelectorAll(targetSelector);
+  targetElements.forEach(element => {
+    observer.observe(element);
+  });
+}
+
+function handleVisibleElement(targetElement) {
+  pushEventToDl("UpcomingEventSectionVisible","Startpage", "A");
+}
+
+
+
+
+  
+
+  
+</script>
