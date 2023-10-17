@@ -5,8 +5,12 @@ const fieldData =
         {
             "webhook":"https://hooks.zapier.com/hooks/catch/590116/biyojkd/?",
             "type": "input",
+            "headline":"Jetzt zum Newsletter anmelden",
+            "datalayerevent": "newsletterform",
             "color":"",
-            "fontcolor":"",
+            "backgroundcolor":"",
+            "bordercolor":"" +
+                "",
             "extraparams":[
 
                 {
@@ -19,7 +23,6 @@ const fieldData =
                 }
 
             ],
-            "bordercolor":"",
             "successmessage":"Super, das hat geklappt.",
             "successicon": "✓️",
             "filedownload":"false",
@@ -177,7 +180,6 @@ const form = generateForm(fieldData, modifier);
 addFormToFrontEnd(".form", form);
 
 
-
 function addFormToFrontEnd(parentClass, formElement){
 
     const parent = document.querySelector(parentClass);
@@ -197,9 +199,14 @@ function generateForm(array, modifier){
     formContainer.setAttribute("id","contactform__wrapper_" + modifier);
     let element;
     let agbSection;
+    let color = array[0].color;
+    let backgroundColor = array[0].backgroundcolor;
+    let borderColor = array[0].bordercolor;
 
 
     array.forEach((item, index) =>{
+
+
 
 
 
@@ -208,11 +215,11 @@ function generateForm(array, modifier){
             //generate input field
             if(item.inputtype =="mathtask"){
 
-                element = generateMathInputField(item, modifier + index);
+                element = generateMathInputField(item, modifier + index, color, backgroundColor, borderColor);
 
             }else{
 
-                element = generateInputField(item, modifier + index );
+                element = generateInputField(item, modifier + index, color, backgroundColor, borderColor );
 
             }
 
@@ -221,7 +228,7 @@ function generateForm(array, modifier){
         if(item.type == "select"){
 
 
-            element = generateSelectField(item.options, modifier + index, item.label, item.error, item.urlparamname);
+            element = generateSelectField(item.options, modifier + index, item.label, item.error, item.urlparamname, color, backgroundColor, borderColor);
 
 
         }
@@ -255,7 +262,7 @@ function generateForm(array, modifier){
 
 
 
-function generateInputField(element, modifier){
+function generateInputField(element, modifier, color, backgroundColor, borderColor){
 
 
     const inputType = element.inputtype;
@@ -265,19 +272,20 @@ function generateInputField(element, modifier){
 
     let inputContainer = document.createElement("div");
     inputContainer.classList.add("contactform__input-container");
+    inputContainer.style.fontColor = color;
+
     inputContainer.setAttribute("id", "contactform__input-container_" + modifier );
 
     inputContainer.innerHTML = ` 
             
-            <div class='contactform__input-wrapper' id='contactform__input-wrapper_${modifier}'>
+            <div class='contactform__input-wrapper' id='contactform__input-wrapper_${modifier}' style='color: ${color}; background-color: ${backgroundColor}; border-color: ${borderColor}'>
             <div class='contactform__labelbox' id='contactform__labelbox_${modifier}' >
-                <label class='contactform__label' id='contactform__label_${modifier}' placeholder='${placeholder}'>${label}</label>
+                <label class='contactform__label' id='contactform__label_${modifier}' placeholder='${placeholder}' style='background-color:${backgroundColor}; color: ${color}'>${label}</label>
             </div>
 
-            <div class='contactform__inputbox' id='contactform__inputbox_${modifier}'>
-                <input class='contactform__input' id='contactform__input_${modifier}' type='${inputType}' data-param='${element.urlparamname}'>
+            <div class='contactform__inputbox' id='contactform__inputbox_${modifier}' >
+                <input class='contactform__input' id='contactform__input_${modifier}' type='${inputType}' data-param='${element.urlparamname}' placeholder='${placeholder}' style='background-color: ${backgroundColor}; color: ${color}'>
             </div>
-
         </div>
 
         <p class='contactform__warning--hidden' id='contactform__warning--hidden_${modifier}'>${errorText}</p>
@@ -292,24 +300,24 @@ function generateInputField(element, modifier){
 
 
 }
-function generateSelectField(array, modifier, label, error, urlparamname){
+function generateSelectField(array, modifier, label, error, urlparamname, color, backgroundColor, borderColor){
 
 
     const inputContainer = document.createElement("div");
     inputContainer.classList.add("contactform__input-container");
     inputContainer.setAttribute("id", "contactform__input-container_" + modifier);
 
-    const selectEl = generateSelectOptions(array, modifier, urlparamname);
+    const selectEl = generateSelectOptions(array, modifier, urlparamname, color, backgroundColor, borderColor);
 
 
     inputContainer.innerHTML = `
                 
-                <div class="contactform__input-wrapper" id='contactform__input-wrapper_${modifier}'>
+                <div class="contactform__input-wrapper" id='contactform__input-wrapper_${modifier}' style='background-color: ${backgroundColor}; border-color: ${borderColor}; color: ${color}'>
                 <div class="contactform__labelbox" id='contactform__labelbox_${modifier}'>
-                    <label class="contactform__label" id='contactform__label_${modifier}'>${label}</label>
+                    <label class="contactform__label" id='contactform__label_${modifier}' style='background-color: ${backgroundColor}; color: ${color}; z-index:1'>${label}</label>
                 </div>
 
-                <div class="contactform__selectbox" id='contactform__selectbox_${modifier}'>
+                <div class="contactform__selectbox" id='contactform__selectbox_${modifier}' style='background-color: ${backgroundColor}; border-color:${borderColor}'>
                     
                     ${selectEl}
                     
@@ -329,13 +337,19 @@ function generateSelectField(array, modifier, label, error, urlparamname){
 }
 
 
-function generateSelectOptions(options, modifier, urlparamname){
+function generateSelectOptions(options, modifier, urlparamname, color, backgroundColor, borderColor){
 
 
     const selectEl = document.createElement("select");
     selectEl.classList.add("contactform__select");
     selectEl.setAttribute("id", "contactform__select_" + modifier);
     selectEl.setAttribute("data-param", urlparamname);
+
+    //add styles
+    selectEl.style.backgroundColor = backgroundColor;
+    selectEl.style.color = color;
+
+
     let option;
 
     options.forEach((item, index) => {
@@ -428,7 +442,7 @@ function generateAGBSection(agbText, modifier, error, index){
 
 }
 
-function generateMathInputField(item, modifier){
+function generateMathInputField(item, modifier, color, backgroundColor, borderColor){
 
     const label = item.label;
     const errorText = item.error;
@@ -438,20 +452,25 @@ function generateMathInputField(item, modifier){
     const taskString = mathTask[1];
     const resultString = mathTask[2];
 
-
+    console.log(color);
 
     let inputContainer = document.createElement("div");
     inputContainer.classList.add("contactform__input-container");
+
+    inputContainer.style.color = color;
+
     inputContainer.setAttribute("id", "contactform__input-container_" + modifier );
 
-    inputContainer.innerHTML = ` <div class='contactform__input-wrapper' id='contactform__input-wrapper_${modifier}'>
+    inputContainer.innerHTML = ` 
+ 
+        <div class='contactform__input-wrapper' id='contactform__input-wrapper_${modifier}' style='background-color: ${backgroundColor}; color: ${color}; border-color: ${borderColor}'>
 
             <div class='contactform__labelbox' id='contactform__labelbox_${modifier}' >
-                <label class='contactform__label' id='contactform__label_${modifier}' placeholder='${placeholder}'>${label}</label>
+                <label class='contactform__label' id='contactform__label_${modifier}' placeholder='${placeholder}' style='background-color: ${backgroundColor}; color: ${color}; z-index: 1'>${label}</label>
             </div>
 
-            <div class='contactform__inputbox' id='contactform__inputbox_${modifier}'>
-                <input class='contactform__input' id='contactform__input_${modifier}' data-result='${result}' data-resultstring='${resultString}'type='text' placeholder='Bitte löse diese Matheaufgabe: ${taskString}'>
+            <div class='contactform__inputbox' id='contactform__inputbox_${modifier}' style='background-color: ${backgroundColor}; border-color:${borderColor}'>
+                <input class='contactform__input' id='contactform__input_${modifier}' style='background-color: ${backgroundColor}' data-result='${result}' data-resultstring='${resultString}'type='text' placeholder='Bitte löse diese Matheaufgabe: ${taskString}'>
             </div>
 
         </div>
@@ -863,6 +882,8 @@ function sendFormDataToWebhook(webhook,paramstring, array){
 
                 console.log("fetch executed");
                 showSuccessScreen("", fieldData);
+                pushEventToDl(fieldData[0].datalayerevent + "submitted", "","")
+
 
 
 
@@ -872,6 +893,8 @@ function sendFormDataToWebhook(webhook,paramstring, array){
 
 
 }
+
+
 
 function showSuccessScreen(idParentElement, array){
 
@@ -977,6 +1000,55 @@ function createDownloadBtn(array){
 
 
     return aEl;
+
+
+
+}
+
+
+//this function is already in the utility functions
+function isElementInViewport(element, modifier) {
+
+    // observer options
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.0 // at least one pixel has to be visible
+    };
+
+    // Callback-Function for observer
+    const callback = (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+
+                // element is visible
+                pushEventToDl(modifier + "visible", "","");
+
+            } else {
+                // element is not visible
+
+
+            }
+        });
+    };
+
+    // observer
+    const observer = new IntersectionObserver(callback, options);
+
+    // element is being observed
+    observer.observe(element);
+}
+
+
+//this function is already in the utility function
+function pushEventToDl(event, location, version){
+
+
+    window.dataLayer.push({
+        'event': event,
+        'action': location,
+        'version': version
+    });
 
 
 
